@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "sibers_test_task"
 include(":app")
- 
+include(":features")
+include(":features:feed")
+include(":features:details")
