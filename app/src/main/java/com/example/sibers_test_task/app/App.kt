@@ -1,6 +1,7 @@
 package com.example.sibers_test_task.app
 
 import android.app.Application
+import com.example.features.feed.di.feedModule
 import com.example.network.di.networkModule
 import com.example.sibers_test_task.di.navigation.navigationModule
 import org.koin.android.ext.koin.androidContext
@@ -15,7 +16,7 @@ class App : Application() {
 			androidContext(this@App)
 			modules(navigationModule)
 			modules(networkModule)
-//			modules(feedModule)
+			modules(feedModule)
 //			modules(detailModule)
 		}
 	}

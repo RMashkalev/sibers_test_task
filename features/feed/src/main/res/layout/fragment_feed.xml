@@ -5,14 +5,46 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:background="#A0A0A0">
-
-	<Button
-		android:id="@+id/button"
+	<ImageView
+		android:id="@+id/imageView"
+		android:layout_width="127dp"
+		android:layout_height="121dp"
+		android:scaleType="fitCenter"
+		android:src="@null"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"/>
+	<TextView
+		android:id="@+id/textView"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="Details"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent"
+		android:text="TextView"
+		app:layout_constraintTop_toBottomOf="@+id/imageView"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintBottom_toBottomOf="parent"/>
+		app:layout_constraintStart_toStartOf="parent"/>
+	<TextView
+		android:id="@+id/textView2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="TextView"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintEnd_toStartOf="@+id/textView3"
+		app:layout_constraintTop_toTopOf="@+id/textView3"/>
+	<TextView
+		android:id="@+id/textView3"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="24dp"
+		android:text="TextView"
+		app:layout_constraintTop_toBottomOf="@+id/textView"
+		app:layout_constraintStart_toStartOf="@+id/textView"
+		app:layout_constraintEnd_toEndOf="@+id/textView"/>
+	<TextView
+		android:id="@+id/textView4"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="TextView"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@+id/textView3"
+		app:layout_constraintTop_toTopOf="@+id/textView3"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

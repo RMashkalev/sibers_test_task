@@ -42,4 +42,9 @@ dependencies {
 	implementation(libs.koin.android)
 	implementation(libs.androidx.navigation.ui)
 	implementation(libs.androidx.navigation.fragment)
+	implementation(libs.kotlinx.coroutines.core)
+	implementation(libs.kotlinx.coroutines.android)
+	implementation(libs.retrofit)
+	implementation(libs.retrofit.gson)
+	implementation(libs.coil)
 }
