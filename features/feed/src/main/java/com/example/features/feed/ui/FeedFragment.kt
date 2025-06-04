@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.features.feed.presentation.FeedRouter
 import com.example.features.feed.presentation.FeedViewModel
 import com.example.features.feed.presentation.PokemonRVAdapter
@@ -44,6 +45,25 @@ class FeedFragment : Fragment() {
 				adapter.submitList(pokemonList)
 			}
 		}
+
+		binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+			override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+				super.onScrolled(recyclerView, dx, dy)
+
+				val layoutManager = recyclerView.layoutManager as? LinearLayoutManager ?: return
+
+				val visibleItemCount = layoutManager.childCount
+				val totalItemCount = layoutManager.itemCount
+				val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
+
+				val isAtEnd = (visibleItemCount + firstVisibleItemPosition) >= totalItemCount
+				val shouldPaginate = isAtEnd && firstVisibleItemPosition >= 0
+
+				if (shouldPaginate && !viewModel.isLoading && !viewModel.isLastPage) {
+					viewModel.load()
+				}
+			}
+		})
 	}
 
 	override fun onDestroyView() {
