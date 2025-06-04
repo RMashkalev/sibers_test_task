@@ -1,7 +1,6 @@
 plugins {
 	alias(libs.plugins.android.library)
 	alias(libs.plugins.kotlin.android)
-	id("androidx.navigation.safeargs.kotlin") version "2.9.0" apply true
 }
 
 android {
@@ -46,4 +45,7 @@ dependencies {
 	implementation(libs.koin.android)
 	implementation(libs.androidx.navigation.ui)
 	implementation(libs.androidx.navigation.fragment)
+	implementation(libs.retrofit)
+	implementation(libs.retrofit.gson)
+	implementation(libs.coil)
 }
