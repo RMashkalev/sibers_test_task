@@ -12,5 +12,5 @@ interface FeedApi {
 	suspend fun loadPokemonNames(@Query("limit") limit: Int, @Query("offset") offset: Int) : PokemonNamesResponse
 
 	@GET("pokemon/{name}")
-	suspend fun loadPokemons(@Path("name") name: String) : BasePokemonModel
+	suspend fun loadPokemon(@Path("name") name: String) : BasePokemonModel
 }

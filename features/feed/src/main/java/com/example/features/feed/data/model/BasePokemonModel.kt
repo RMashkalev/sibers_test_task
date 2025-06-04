@@ -5,7 +5,6 @@ data class PokemonNamesResponse(
 )
 
 data class BasePokemonModel(
-	val id: Int,
 	val forms: List<Form>,
 	val stats: List<Stats>,
 	val sprites: Sprites,
