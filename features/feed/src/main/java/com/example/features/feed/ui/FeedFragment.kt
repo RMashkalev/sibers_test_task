@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
 import com.example.features.feed.domain.entity.BasePokemon
 import com.example.features.feed.presentation.FeedRouter
 import com.example.features.feed.presentation.FeedState
 import com.example.features.feed.presentation.FeedViewModel
+import com.example.features.feed.presentation.PokemonRVAdapter
 import com.example.feed.R
 import com.example.feed.databinding.FragmentFeedBinding
 import org.koin.android.ext.android.inject
@@ -24,6 +26,8 @@ class FeedFragment : Fragment() {
 	private val router: FeedRouter by inject { parametersOf(findNavController()) }
 	private val viewModel: FeedViewModel by inject { parametersOf(router) }
 
+	private lateinit var adapter: PokemonRVAdapter
+
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 		_binding = FragmentFeedBinding.inflate(inflater, container, false)
 		return binding.root
@@ -32,27 +36,14 @@ class FeedFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
+		adapter = PokemonRVAdapter()
+		binding.recyclerView.adapter = adapter
+		binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
 		viewModel.pokemons.observe(viewLifecycleOwner) { pokemonList ->
 			if (pokemonList.isNotEmpty()) {
-				val firstPokemon = pokemonList[0]
-				updateUI(firstPokemon)
+				adapter.submitList(pokemonList)
 			}
-		}
-
-		viewModel.load()
-	}
-
-	private fun updateUI(pokemon: BasePokemon) {
-		binding.textView.text = pokemon.name ?: getString(R.string.empty_name)
-		binding.textView2.text = pokemon.statAttack.toString()
-		binding.textView3.text = pokemon.statDefense.toString()
-		binding.textView4.text = pokemon.statHealth.toString()
-		Log.d("aaa", pokemon.imgUrl.toString())
-		binding.imageView.load(pokemon.imgUrl) {
-			crossfade(true)
-			placeholder(R.drawable.placeholder) // Ваша кастомная заглушка
-			error(R.drawable.placeholder) // Картинка при ошибке
-			lifecycle(viewLifecycleOwner)
 		}
 	}
 

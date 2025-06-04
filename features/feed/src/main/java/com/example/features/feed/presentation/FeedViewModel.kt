@@ -7,7 +7,7 @@ import com.example.features.feed.domain.entity.BasePokemon
 import com.example.features.feed.domain.usecase.LoadPokemonsUseCase
 import kotlinx.coroutines.launch
 
-private const val POKEMONS_ON_PAGE = 1
+private const val POKEMONS_ON_PAGE = 30
 
 class FeedViewModel(
 	private val loadPokemonsUseCase: LoadPokemonsUseCase,
@@ -15,14 +15,14 @@ class FeedViewModel(
 ) : ViewModel() {
 
 	val pokemons = MutableLiveData<List<BasePokemon>>(listOf())
-	private var offset = 2
+	private var offset = 0
 	private var continueLoad = true
 
 	init {
 		load()
 	}
 
-	fun load() {
+	private fun load() {
 		if (!continueLoad) return
 
 		viewModelScope.launch {
