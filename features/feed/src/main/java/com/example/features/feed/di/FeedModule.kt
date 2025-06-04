@@ -1,6 +1,5 @@
 package com.example.features.feed.di
 
-import androidx.navigation.NavController
 import com.example.features.feed.data.api.FeedApi
 import com.example.features.feed.data.datasource.FeedRemoteDataSource
 import com.example.features.feed.data.datasource.FeedRemoteDataSourceImpl

@@ -34,6 +34,8 @@ android {
 
 dependencies {
 
+	implementation(project(":component:navigation-contract"))
+
 	implementation(libs.androidx.core.ktx)
 	implementation(libs.androidx.appcompat)
 	implementation(libs.material)

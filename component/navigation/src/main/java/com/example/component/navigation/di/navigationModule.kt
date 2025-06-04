@@ -1,10 +1,10 @@
-package com.example.sibers_test_task.di.navigation
+package com.example.component.navigation.di
 
 import androidx.navigation.NavController
+import com.example.component.navigation.routers.DetailsRouterImpl
+import com.example.component.navigation.routers.FeedRouterImpl
 import com.example.features.details.presentation.DetailsRouter
 import com.example.features.feed.presentation.FeedRouter
-import com.example.sibers_test_task.navigation.DetailsRouterImpl
-import com.example.sibers_test_task.navigation.FeedRouterImpl
 import org.koin.dsl.module
 
 val navigationModule = module {

@@ -1,8 +1,8 @@
-package com.example.sibers_test_task.navigation
+package com.example.component.navigation.routers
 
 import androidx.navigation.NavController
+import com.example.component.navigation.R
 import com.example.features.details.presentation.DetailsRouter
-import com.example.sibers_test_task.R
 
 class DetailsRouterImpl(
 	private val navController: NavController,

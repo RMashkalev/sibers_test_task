@@ -1,20 +1,15 @@
 package com.example.features.feed.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import coil.load
-import com.example.features.feed.domain.entity.BasePokemon
 import com.example.features.feed.presentation.FeedRouter
-import com.example.features.feed.presentation.FeedState
 import com.example.features.feed.presentation.FeedViewModel
 import com.example.features.feed.presentation.PokemonRVAdapter
-import com.example.feed.R
 import com.example.feed.databinding.FragmentFeedBinding
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
@@ -36,7 +31,11 @@ class FeedFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		adapter = PokemonRVAdapter()
+		adapter = PokemonRVAdapter(
+			onItemClick = {
+				viewModel.openDetails(it)
+			}
+		)
 		binding.recyclerView.adapter = adapter
 		binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 

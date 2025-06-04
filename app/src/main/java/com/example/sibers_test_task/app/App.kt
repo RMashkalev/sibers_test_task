@@ -1,9 +1,9 @@
 package com.example.sibers_test_task.app
 
 import android.app.Application
+import com.example.component.navigation.di.navigationModule
 import com.example.features.feed.di.feedModule
 import com.example.network.di.networkModule
-import com.example.sibers_test_task.di.navigation.navigationModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.GlobalContext.startKoin
 

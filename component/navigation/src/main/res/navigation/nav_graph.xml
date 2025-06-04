@@ -14,7 +14,11 @@
 	<fragment android:id="@+id/detailFragment"
 		android:name="com.example.features.details.ui.DetailFragment"
 		android:label="DetailFragment">
+
 		<action android:id="@+id/action_detailFragment_to_feedFragment"
-			app:destination="@id/feedFragment"/>
+			app:destination="@id/feedFragment"
+		/>
+		<argument android:name="pokemonName"
+			app:argType="string"/>
 	</fragment>
 </navigation>

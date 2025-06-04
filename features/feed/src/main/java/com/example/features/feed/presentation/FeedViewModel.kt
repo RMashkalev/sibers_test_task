@@ -35,4 +35,8 @@ class FeedViewModel(
 			}
 		}
 	}
+
+	fun openDetails(name: String) {
+		feedRouter.openDetails(name)
+	}
 }

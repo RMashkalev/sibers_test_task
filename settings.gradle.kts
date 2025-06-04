@@ -11,6 +11,9 @@ pluginManagement {
 		gradlePluginPortal()
 		maven(url = "https://jitpack.io")
 	}
+	plugins {
+		id("androidx.navigation.safeargs.kotlin") version "2.9.0"
+	}
 }
 dependencyResolutionManagement {
 	repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -27,3 +30,5 @@ include(":features:feed")
 include(":features:details")
 include(":component")
 include(":component:network")
+include(":component:navigation")
+include(":component:navigation-contract")

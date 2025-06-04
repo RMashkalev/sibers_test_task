@@ -10,9 +10,11 @@ import com.example.features.feed.domain.entity.BasePokemon
 import com.example.feed.R
 import com.example.feed.databinding.PokemonItemBinding
 
-class PokemonRVAdapter : ListAdapter<BasePokemon, PokemonRVAdapter.PokemonViewHolder>(PokemonDiffCallback) {
+class PokemonRVAdapter(
+	private val onItemClick: (name: String) -> Unit
+) : ListAdapter<BasePokemon, PokemonRVAdapter.PokemonViewHolder>(PokemonDiffCallback) {
 
-	class PokemonViewHolder(private val binding: PokemonItemBinding) :
+	inner class PokemonViewHolder(private val binding: PokemonItemBinding) :
 		RecyclerView.ViewHolder(binding.root) {
 
 		fun bind(pokemon: BasePokemon) = with(binding) {
@@ -25,20 +27,17 @@ class PokemonRVAdapter : ListAdapter<BasePokemon, PokemonRVAdapter.PokemonViewHo
 				placeholder(R.drawable.pokemon_load)
 				error(R.drawable.placeholder)
 			}
-		}
 
-		companion object {
-
-			fun from(parent: ViewGroup): PokemonViewHolder {
-				val inflater = LayoutInflater.from(parent.context)
-				val binding = PokemonItemBinding.inflate(inflater, parent, false)
-				return PokemonViewHolder(binding)
+			itemView.setOnClickListener {
+				pokemon.name?.let { name -> onItemClick(name) }
 			}
 		}
 	}
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
-		return PokemonViewHolder.from(parent)
+		val inflater = LayoutInflater.from(parent.context)
+		val binding = PokemonItemBinding.inflate(inflater, parent, false)
+		return PokemonViewHolder(binding)
 	}
 
 	override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {

@@ -1,5 +1,6 @@
 package com.example.features.feed.presentation
 
 interface FeedRouter {
-	fun openDetails()
+
+	fun openDetails(name: String)
 }
