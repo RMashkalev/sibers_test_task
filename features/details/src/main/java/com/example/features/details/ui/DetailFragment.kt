@@ -60,9 +60,21 @@ class DetailFragment : Fragment() {
 			viewModel.errorMessage.collect { message ->
 				if (message != null) {
 					Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
+					binding.reloadButton.visibility = View.VISIBLE
+					binding.pokemonCard.visibility = View.GONE
+					binding.mainStatsCard.visibility = View.GONE
+					binding.secondaryStatsCard.visibility = View.GONE
 					viewModel.clearError()
 				}
 			}
+		}
+
+		binding.reloadButton.setOnClickListener {
+			viewModel.load(name.pokemonName)
+			binding.reloadButton.visibility = View.GONE
+			binding.pokemonCard.visibility = View.VISIBLE
+			binding.mainStatsCard.visibility = View.VISIBLE
+			binding.secondaryStatsCard.visibility = View.VISIBLE
 		}
 	}
 

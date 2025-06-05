@@ -54,6 +54,7 @@ class FeedFragment : Fragment() {
 			viewModel.errorMessage.collect { message ->
 				if (message != null) {
 					Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
+					binding.reloadButton.visibility = View.VISIBLE
 					viewModel.clearError()
 				}
 			}
@@ -77,6 +78,11 @@ class FeedFragment : Fragment() {
 				}
 			}
 		})
+
+		binding.reloadButton.setOnClickListener {
+			viewModel.load()
+			binding.reloadButton.visibility = View.GONE
+		}
 	}
 
 	override fun onDestroyView() {
