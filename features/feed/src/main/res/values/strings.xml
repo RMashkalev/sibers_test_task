@@ -4,6 +4,7 @@
 
 	<string name="reload_button">Перезагрузка</string>
 	<string name="pokemon_name">Pokemon Name</string>
+	<string name="pokemon_img">Pokemon Img</string>
 	<string name="pokemon_atk">atk</string>
 	<string name="pokemon_def">def</string>
 	<string name="pokemon_hp">hp</string>

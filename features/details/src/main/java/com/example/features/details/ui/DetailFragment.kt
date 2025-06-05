@@ -53,7 +53,7 @@ class DetailFragment : Fragment() {
 		}
 
 		binding.backButton.setOnClickListener {
-			router.backToFeed()
+			viewModel.backToFeed()
 		}
 
 		lifecycleScope.launch {

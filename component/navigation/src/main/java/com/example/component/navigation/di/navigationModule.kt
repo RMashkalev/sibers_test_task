@@ -1,6 +1,5 @@
 package com.example.component.navigation.di
 
-import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.NavController
 import com.example.component.navigation.routers.DetailsRouterImpl
 import com.example.component.navigation.routers.FeedRouterImpl

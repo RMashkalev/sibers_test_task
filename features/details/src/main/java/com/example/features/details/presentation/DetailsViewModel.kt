@@ -31,6 +31,10 @@ class DetailsViewModel(
 		}
 	}
 
+	fun backToFeed() {
+		detailsRouter.backToFeed()
+	}
+
 	fun clearError() {
 		_errorMessage.value = null
 	}

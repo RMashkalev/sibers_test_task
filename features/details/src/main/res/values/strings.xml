@@ -3,6 +3,7 @@
 
 	<string name="back_button">Назад</string>
 	<string name="reload_button">Перезагрузка</string>
+	<string name="pokemon_img">Pokemon Img</string>
 	<string name="pokemon_name">Pokemon Name</string>
 	<string name="main_stats">Основные характеристики</string>
 	<string name="pokemon_atk">atk</string>
