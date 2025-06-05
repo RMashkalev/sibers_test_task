@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="back_button">Назад</string>
+	<string name="reload_button">Перезагрузка</string>
+	<string name="pokemon_name">Pokemon Name</string>
+	<string name="main_stats">Основные характеристики</string>
+	<string name="pokemon_atk">atk</string>
+	<string name="pokemon_def">def</string>
+	<string name="pokemon_hp">hp</string>
+	<string name="secondary_stats">Дополнительные характеристики</string>
+	<string name="pokemon_height">height</string>
+	<string name="pokemon_weight">weight</string>
+	<string name="pokemon_generation_title">Род покемона</string>
+	<string name="pokemon_generation">generation</string>
+</resources>
