@@ -1,4 +1,4 @@
-package com.example.features.feed.presentation
+package com.example.navigation_contract.routers
 
 interface FeedRouter {
 

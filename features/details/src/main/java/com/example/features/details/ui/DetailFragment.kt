@@ -4,16 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.details.R
 import com.example.details.databinding.FragmentDetailBinding
-import com.example.features.details.presentation.DetailsRouter
+import com.example.navigation_contract.routers.DetailsRouter
 import com.example.features.details.presentation.DetailsViewModel
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 import coil.load
+import kotlinx.coroutines.launch
 
 class DetailFragment : Fragment() {
 
@@ -49,6 +52,18 @@ class DetailFragment : Fragment() {
 			}
 		}
 
+		binding.backButton.setOnClickListener {
+			router.backToFeed()
+		}
+
+		lifecycleScope.launch {
+			viewModel.errorMessage.collect { message ->
+				if (message != null) {
+					Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
+					viewModel.clearError()
+				}
+			}
+		}
 	}
 
 	override fun onDestroyView() {

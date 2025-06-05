@@ -1,17 +1,21 @@
 package com.example.features.feed.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.features.feed.presentation.FeedRouter
+import com.example.navigation_contract.routers.FeedRouter
 import com.example.features.feed.presentation.FeedViewModel
 import com.example.features.feed.presentation.PokemonRVAdapter
 import com.example.feed.databinding.FragmentFeedBinding
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
@@ -31,7 +35,7 @@ class FeedFragment : Fragment() {
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
-
+		Log.d("aaa", "onViewCreated")
 		adapter = PokemonRVAdapter(
 			onItemClick = {
 				viewModel.openDetails(it)
@@ -43,6 +47,15 @@ class FeedFragment : Fragment() {
 		viewModel.pokemons.observe(viewLifecycleOwner) { pokemonList ->
 			if (pokemonList.isNotEmpty()) {
 				adapter.submitList(pokemonList)
+			}
+		}
+
+		lifecycleScope.launch {
+			viewModel.errorMessage.collect { message ->
+				if (message != null) {
+					Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
+					viewModel.clearError()
+				}
 			}
 		}
 
@@ -69,5 +82,6 @@ class FeedFragment : Fragment() {
 	override fun onDestroyView() {
 		super.onDestroyView()
 		_binding = null
+		Log.d("aaa", "onViewDestroy")
 	}
 }

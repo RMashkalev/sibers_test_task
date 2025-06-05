@@ -6,7 +6,7 @@ import com.example.features.details.data.datasource.DetailsRemoteDataSourceImpl
 import com.example.features.details.data.repository.DetailsRepositoryImpl
 import com.example.features.details.domain.repository.DetailsRepository
 import com.example.features.details.domain.usecase.LoadPokemonDataUseCase
-import com.example.features.details.presentation.DetailsRouter
+import com.example.navigation_contract.routers.DetailsRouter
 import com.example.features.details.presentation.DetailsViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module

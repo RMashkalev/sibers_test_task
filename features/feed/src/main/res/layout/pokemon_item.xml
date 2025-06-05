@@ -35,7 +35,6 @@
 				android:text="Pokemon Name"
 				android:textSize="16sp"
 				android:textStyle="bold"
-				android:textColor="@color/color_text"
 				app:layout_constraintStart_toEndOf="@+id/pokemon_img"
 				app:layout_constraintTop_toTopOf="@+id/pokemon_img"/>
 
@@ -53,7 +52,6 @@
 				android:layout_height="wrap_content"
 				android:layout_marginStart="8dp"
 				android:text="Attack"
-				android:textColor="@color/color_text"
 				app:layout_constraintStart_toEndOf="@+id/img_attack"
 				app:layout_constraintBottom_toBottomOf="@+id/img_attack"
 				app:layout_constraintTop_toTopOf="@+id/img_attack"
@@ -75,7 +73,6 @@
 				android:layout_height="wrap_content"
 				android:layout_marginStart="4dp"
 				android:text="Defense"
-				android:textColor="@color/color_text"
 				app:layout_constraintStart_toEndOf="@+id/img_def"
 				app:layout_constraintTop_toTopOf="@+id/img_def"
 				app:layout_constraintBottom_toBottomOf="@+id/img_def"
@@ -97,7 +94,6 @@
 				android:layout_height="wrap_content"
 				android:layout_marginStart="8dp"
 				android:text="Health"
-				android:textColor="@color/color_text"
 				app:layout_constraintStart_toEndOf="@+id/img_hp"
 				app:layout_constraintTop_toTopOf="@+id/img_hp"
 				app:layout_constraintBottom_toBottomOf="@+id/img_hp"/>

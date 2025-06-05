@@ -1,4 +1,4 @@
-package com.example.features.details.presentation
+package com.example.navigation_contract.routers
 
 interface DetailsRouter {
 	fun backToFeed()

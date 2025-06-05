@@ -6,7 +6,7 @@ import com.example.features.feed.data.datasource.FeedRemoteDataSourceImpl
 import com.example.features.feed.data.repository.FeedRepositoryImpl
 import com.example.features.feed.domain.repository.FeedRepository
 import com.example.features.feed.domain.usecase.LoadPokemonsUseCase
-import com.example.features.feed.presentation.FeedRouter
+import com.example.navigation_contract.routers.FeedRouter
 import com.example.features.feed.presentation.FeedViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
